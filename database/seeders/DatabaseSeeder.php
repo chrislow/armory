@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\ItemCategory;
 use Illuminate\Database\Seeder;
+use Database\Seeders\ItemSeeder;
+use Database\Seeders\ItemTypeSeeder;
+use Database\Seeders\ItemRaritySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            ItemTypeSeeder::class,
+            ItemCategorySeeder::class,
+            ItemRaritySeeder::class,
+            ItemSeeder::class,
+        ]);
     }
 }
