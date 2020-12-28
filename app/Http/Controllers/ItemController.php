@@ -14,9 +14,9 @@ class ItemController extends Controller
         return response()->json($items);
     }
 
-    public function show(int $id)
+    public function show(int $item_id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::findOrFail($item_id);
         return response()->json($item);
     }
 

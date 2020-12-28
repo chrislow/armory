@@ -20,16 +20,16 @@ class AuthController extends Controller
         ]);
 
         // Create a new user
-        $u = new User();
-        $u->name = $request->name;
-        $u->email = $request->email;
-        $u->password = Hash::make($request->password);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
         // Store it
-        if ($u->save()) {
+        if ($user->save()) {
             // Generate a new access token
             return response()->json([
-                'access_token' => $u->createToken($request->device_name)->plainTextToken
+                'access_token' => $user->createToken($request->device_name)->plainTextToken
             ]);
         }
     }
